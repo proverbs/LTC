@@ -1,4 +1,5 @@
-/*two pointer*/
+/*dp*/
+/*another solution using stack is nice*/
 
 #include <iostream>
 #include <string>
@@ -10,26 +11,29 @@ using namespace std;
 class Solution {
 public:
     int longestValidParentheses(string s) {
-        stack<char> stk;
-        int maxlen = 0;
-        int pline = 0, tmaxlen = 0;
-        for (int i = 0; i < s.length(); ) {
-            while (!stk.empty() && stk.top() == '(' && s[i] == ')') {
-                stk.pop();
-                i ++;
-                tmaxlen += 2;
-            }
-            maxlen = max(maxlen, tmaxlen);
-            if (pline > stk.size()) tmaxlen = 0;
-            pline = stk.size();
-           
-            if (i < s.length()) stk.push(s[i++]);
+        vector<int> dp(s.length(), -1);
+        int res = 0;
+        for (int i = 0; i < s.length(); i ++) {
+            dp[i] = find(s, i, dp);
+            res = max(res, dp[i]);
         }
-        return maxlen;
+        return res;
+    }
+
+    int find(string& s, int x, vector<int>& dp) {
+        if (x >= s.length()) return 0;
+        if (dp[x] != -1) return dp[x];
+        dp[x] = 0;
+        if (s[x] == ')') return dp[x];
+        else if (x + 1 < s.length()) {
+            dp[x + 1] = find(s, x + 1, dp);
+            if (s[x + dp[x + 1] + 1] == ')') dp[x] = dp[x + 1] + 2 + find(s, x + dp[x + 1] + 2, dp);
+        }
+        return dp[x];
     }
 };
 
 int main() {
-    cout << Solution().longestValidParentheses("()(())") << endl;
+    cout << Solution().longestValidParentheses(")()())") << endl;
     return 0;
 }
