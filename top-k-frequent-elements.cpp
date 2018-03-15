@@ -1,15 +1,29 @@
-/*divide and conquer, quick sort*/
-/*classic*/
+/*unordered_map+logn的第k大*/
 
 #include <iostream>
 #include <vector>
+#include <unordered_map>
 
 using namespace std;
 
 class Solution {
 public:
-    int findKthLargest(vector<int>& nums, int k) {
-        return search(nums, 0, nums.size() - 1, nums.size() - k + 1);
+    vector<int> topKFrequent(vector<int>& nums, int k) {
+        unordered_map<int, int> mp;
+        for (int i = 0; i < nums.size(); i ++) {
+            if (mp.count(nums[i])) mp[nums[i]] ++;
+            else mp[nums[i]] = 1;
+        }
+        vector<int> v;
+        for (unordered_map<int, int>::iterator it = mp.begin(); it != mp.end(); it ++) {
+            v.push_back(it->second);
+        }
+        int z = search(v, 0, v.size() - 1, v.size() - k + 1);
+        vector<int> res;
+        for (unordered_map<int, int>::iterator it = mp.begin(); it != mp.end(); it ++) {
+            if (it->second >= z) res.push_back(it->first);
+        }
+        return res;
     }
 
     int partition(vector<int>& nums, int lt, int rt) {
@@ -37,8 +51,8 @@ public:
 };
 
 int main() {
-    int a[] = {7,6,5,4,3,2,1};
-    vector<int> v(a, a + 7);
-    cout << Solution().findKthLargest(v, 2) << endl;
+    int a[] = {3,0,1,0};
+    vector<int> b(a, a + 4);
+    Solution().topKFrequent(b, 1);
     return 0;
 }
