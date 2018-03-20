@@ -1,4 +1,8 @@
 /*pointer*/
+/**
+ * 有一个巧妙的one pass 方法（其实也不是one pass）
+ * p1走n-1步，然后p2从头走，同事p1继续走，直到p1为null，此时p2指向的为需要删除的节点
+*/
 
 /**
  * Definition for singly-linked list.
