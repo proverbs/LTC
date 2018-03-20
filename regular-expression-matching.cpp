@@ -1,5 +1,7 @@
 /*dp，记忆化搜索*/
 // 细节比较多，很难一下子想全
+// 一个很好的转移方程
+// https://leetcode.com/problems/regular-expression-matching/discuss/5684/9-lines-16ms-C++-DP-Solutions-with-Explanations
 
 #include <vector>
 #include <string>
