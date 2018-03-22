@@ -1,4 +1,4 @@
-/*递推, re????*/
+/*递推*/
 
 #include <iostream>
 #include <sstream>
@@ -16,14 +16,13 @@ public:
             vector<int> ts;
             int lt = 0, rt = 1;
             while (lt != s.size()) {
-                while (lt != s.size() && s[rt] == s[lt]) rt ++;
+                while (rt != s.size() && s[rt] == s[lt]) rt ++;
                 ts.push_back(rt - lt);
                 ts.push_back(s[lt]);
                 lt = rt;
                 rt ++;
             }
-            //s = ts;
-            s.assign(ts.begin(), ts.end());
+            s = ts;
         }
         return toString(s);
     }
