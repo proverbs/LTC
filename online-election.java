@@ -15,7 +15,7 @@ class TopVotedCandidate {
         int h_vote = -1;
         Map<Integer, Integer> pv = new HashMap<>();
         for (int i = 0; i < persons.length; i ++) {
-            int val = pv.getOrDefault(persons[i], 0);
+            int val = pv.getOrDefault(persons[i], 0); // nice
             pv.put(persons[i], val + 1);
             if (val + 1 >= h_vote) {
                 h_vote = val + 1;
@@ -28,7 +28,7 @@ class TopVotedCandidate {
     
     // O(logn)
     public int q(int t) {
-        int ins_pos = Arrays.binarySearch(this.times, t);
+        int ins_pos = Arrays.binarySearch(this.times, t);  // nice
         if (ins_pos >= 0) return this.persons[ins_pos];
         else return this.persons[-ins_pos - 2];
     }
