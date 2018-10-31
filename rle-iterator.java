@@ -21,7 +21,7 @@ class RLEIterator {
     
     public int next(int n) {
         sumn += n;
-        int ins_pos = Collections.binarySearch(suma, sumn);
+        int ins_pos = Collections.binarySearch(suma, sumn); // nice: different from Arrays
         if (ins_pos >= 0) return a.get(ins_pos);
         else {
             ins_pos = -ins_pos - 1;
