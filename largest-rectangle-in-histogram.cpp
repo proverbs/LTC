@@ -1,5 +1,5 @@
 /*stack, dp*/
-/*classic*/
+/*classic, monotone stack*/
 
 #include <iostream>
 #include <vector>
