@@ -1,5 +1,5 @@
 // from: https://leetcode.com/problems/race-car/discuss/123834/C%2B%2BJavaPython-DP-solution
-// classic: tricky
+// tipical: tricky
 // cannot prove this is right
 
 class Solution {

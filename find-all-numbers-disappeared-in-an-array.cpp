@@ -1,5 +1,5 @@
 /*将数组看成链表*/
-/*classic*/
+/*tipical*/
 
 class Solution {
 public:

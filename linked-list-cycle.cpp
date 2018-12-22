@@ -1,5 +1,5 @@
 /*two pointers*/
-/*classic*/
+/*tipical*/
 
 /**
  * Definition for singly-linked list.

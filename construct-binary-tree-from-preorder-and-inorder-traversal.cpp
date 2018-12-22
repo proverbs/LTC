@@ -1,5 +1,5 @@
 /*dfs*/
-/*classic*/
+/*tipical*/
 
 /**
  * Definition for a binary tree node.

@@ -1,4 +1,4 @@
-// classic: priority_queue + sort + comparator
+// tipical: priority_queue + sort + comparator
 // enumerate all ratios, then how to calculate the minimum cost?
 // maintain workers whose ratios are less than current ratio, and select K workers with the least quality
 

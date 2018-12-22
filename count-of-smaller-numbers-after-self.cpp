@@ -1,5 +1,5 @@
 /*树状数组*/
-/*classic, 逆序对*/
+/*tipical, 逆序对*/
 /*还有一种分治的方法*/
 
 #include <iostream>

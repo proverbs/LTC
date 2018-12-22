@@ -1,5 +1,5 @@
 /*kmp or hash(可加和)*/
-/*classic*/
+/*tipical*/
 
 class Solution {
 public:

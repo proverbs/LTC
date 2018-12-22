@@ -1,4 +1,4 @@
-// classic: reverse thinking
+// tipical: reverse thinking
 
 class Solution {
 public:

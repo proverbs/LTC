@@ -1,4 +1,4 @@
-// classic: high-precision multiplication
+// tipical: high-precision multiplication
 
 class Solution {
 public:

@@ -1,4 +1,4 @@
-// classic: only push nodes whose left child has not visited into the stack
+// tipical: only push nodes whose left child has not visited into the stack
 
 /**
  * Definition for binary tree

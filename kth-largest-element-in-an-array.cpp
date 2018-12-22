@@ -1,5 +1,5 @@
 /*divide and conquer, quick sort*/
-/*classic*/
+/*tipical*/
 
 #include <iostream>
 #include <vector>

@@ -1,4 +1,4 @@
-/*classic*/
+/*tipical*/
 /*nums数组相当于数组模拟链表:https://leetcode.com/problems/find-the-duplicate-number/discuss/72846/My-easy-understood-solution-with-O(n)-time-and-O(1)-space-without-modifying-the-array.-With-clear-explanation.*/
 /*一种位运算的方法：https://leetcode.com/problems/find-the-duplicate-number/discuss/72872/O(32*N)-solution-using-bit-manipulation-in-10-lines*/
 

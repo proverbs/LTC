@@ -1,4 +1,4 @@
-// classic: recursively insert string
+// tipical: recursively insert string
 
 class AutocompleteSystem {
 public:

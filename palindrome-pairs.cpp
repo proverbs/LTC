@@ -1,4 +1,4 @@
-// classic: 2 tries
+// tipical: 2 tries
 // time complexity: O(n*len)
 // space complexity: O(n*len)
 

@@ -1,4 +1,4 @@
-// classic
+// tipical
 
 
 /**

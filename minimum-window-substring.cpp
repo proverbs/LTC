@@ -1,5 +1,5 @@
 /*two pointers, slide window*/
-/*classic*/
+/*tipical*/
 
 #include <iostream>
 #include <string>

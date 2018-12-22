@@ -1,4 +1,4 @@
-// classic: empty nested array makes it much more complicated.
+// tipical: empty nested array makes it much more complicated.
 
 /**
  * // This is the interface that allows for creating nested lists.

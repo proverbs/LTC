@@ -1,5 +1,5 @@
 /*dfs*/
-/*classic, 可以写的非常简单*/
+/*tipical, 可以写的非常简单*/
 
 /**
  * Definition for a binary tree node.

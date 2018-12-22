@@ -1,5 +1,5 @@
 /*two pointers, math*/
-/*classic, 非常巧妙！*/
+/*tipical, 非常巧妙！*/
 /*https://leetcode.com/problems/linked-list-cycle-ii/discuss/44781/Concise-O(n)-solution-by-using-C++-with-Detailed-Alogrithm-Description*/
 
 /**

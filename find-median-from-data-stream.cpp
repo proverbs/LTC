@@ -1,4 +1,4 @@
-// classic: dynamic median without Self-balancing BST
+// tipical: dynamic median without Self-balancing BST
 // two heaps
 
 #include <queue>
@@ -6,7 +6,7 @@
 class MedianFinder {
 public:
     /** initialize your data structure here. */
-    priority_queue<int, vector<int>, greater<int>> min_heap; // classic
+    priority_queue<int, vector<int>, greater<int>> min_heap; // tipical
     priority_queue<int, vector<int>, less<int>> max_heap;
     MedianFinder() {
         while (!min_heap.empty()) min_heap.pop();
