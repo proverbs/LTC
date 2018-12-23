@@ -1,4 +1,4 @@
-// tipical: pay attention to details
+// typical: pay attention to details
 
 /**
  * Definition for singly-linked list.

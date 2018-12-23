@@ -1,4 +1,4 @@
-// tipical: to implement O(1) random, we can only use array.
+// typical: to implement O(1) random, we can only use array.
 // and to implement O(1) insert/remove, we can only use hashmap. 
 
 class RandomizedSet {

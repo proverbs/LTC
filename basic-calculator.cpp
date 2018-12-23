@@ -1,4 +1,4 @@
-// tipical: expression calculation
+// typical: expression calculation
 
 class Solution {
 public:

@@ -1,4 +1,4 @@
-// tipical: mono-increasing stack
+// typical: mono-increasing stack
 
 class Solution {
 public:

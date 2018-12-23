@@ -1,5 +1,5 @@
 /*转换为求两个数的差为定值, hashmap*/
-/*tipical*/
+/*typical*/
 
 class Solution {
 public:

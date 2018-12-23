@@ -1,5 +1,5 @@
 /*deque, monotonic queue*/
-/*tipical*/
+/*typical*/
 
 #include <deque>
 #include <vector>

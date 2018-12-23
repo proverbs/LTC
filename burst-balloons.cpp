@@ -1,5 +1,5 @@
 /*区间dp，逆向思维*/
-/*tipical*/
+/*typical*/
 
 class Solution {
 public:

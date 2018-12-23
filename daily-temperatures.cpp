@@ -1,4 +1,4 @@
-// tipical: Monotone stack(decreasing)
+// typical: Monotone stack(decreasing)
 // find the first larger element
 // time complexity: O(n)
 // space complexity: O(n)

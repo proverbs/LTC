@@ -1,5 +1,5 @@
 /*bit, hashmap*/
-/*tipical*/
+/*typical*/
 
 class Solution {
 public:
