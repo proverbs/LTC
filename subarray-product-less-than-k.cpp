@@ -1,5 +1,5 @@
-// O(n), sliding window
-// it is also a good idea to use binary search by convert the problem to subarray products to subarray sums
+// O(n), two pointers
+// it is also a good idea to use binary search by converting the problem from subarray products to subarray sums using log.
 
 class Solution {
 public:
