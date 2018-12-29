@@ -1,9 +1,9 @@
-//typical: swap number at position i to position (nums[i] - 1). O(n).
+//typical: swap num[i] to the index of (nums[i] - 1). O(n).
 
 class Solution {
 public:
     vector<int> findDuplicates(vector<int>& nums) {
-        // swap number at position i to position (nums[i] - 1). O(n).
+        // swap num[i] to the index of (nums[i] - 1). O(n).
         for (int i = 0; i < nums.size(); i ++) 
             while (nums[i] != nums[nums[i] - 1]) swap(nums[i], nums[nums[i] - 1]);
         vector<int> res;
