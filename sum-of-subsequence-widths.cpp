@@ -25,7 +25,7 @@ public:
         while (!stk.empty()) stk.pop();
         stk.push(n - 1);
         for (int i = n - 2; i >= 1; i --) {
-            while (xs[stk.top()] <= xs[i]) stk.pop();
+            while (xs[stk.top()] < xs[i]) stk.pop();
             rt[i] = stk.top();
             stk.push(i);
         }
@@ -37,7 +37,7 @@ public:
             sum_max %= mod;
         }
         
-        // calc sum max
+        // calc sum min
         xs[0] = xs[n - 1] = -22222;
         
         while (!stk.empty()) stk.pop();
