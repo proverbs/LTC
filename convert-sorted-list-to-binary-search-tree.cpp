@@ -1,5 +1,5 @@
 // same as build BST from sorted array
-// O(n) solution using inorder traversal: ttps://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/solution/
+// O(n) solution using inorder traversal: https://leetcode.com/problems/convert-sorted-list-to-binary-search-tree/solution/
 /**
  * Definition for singly-linked list.
  * struct ListNode {
