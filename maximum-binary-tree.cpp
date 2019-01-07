@@ -1,4 +1,7 @@
 // a better way is to use segment tree to maintain queries for maximum of the range
+// However, I think it is also O(nlogn) which is the same as brute force.
+// A brilliant way is to use stack: https://leetcode.com/problems/maximum-binary-tree/discuss/106156/Java-worst-case-O(N)-solution
+// the parent of a node = min(nearest max to the left, nearest max to the right) 
 
 /**
  * Definition for a binary tree node.
