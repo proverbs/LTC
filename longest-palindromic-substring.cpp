@@ -111,3 +111,70 @@ int main() {
     cout << Solution().longestPalindrome(a) << endl;
     return 0;
 }
+
+
+/**
+ * a better version, however, the hash function only works for this problem
+*/
+class Solution {
+public:
+    const static long long MOD = 1000000007LL;
+    string longestPalindrome(string s) {
+        int n = s.length();
+        int nn = n * 2 + 1;
+        vector<long long> factor(nn, 0);
+        factor[0] = 1LL;
+        for (int i = 1; i < nn; i ++) {
+            factor[i] = factor[i - 1] * 27 % MOD;
+        }
+        
+        vector<long long> hash_lt(nn, 0);
+        hash_lt[0] = 0;
+        for (int i = 1; i < nn - 1; i ++) {
+            if (i & 1) hash_lt[i] = (hash_lt[i - 1] + factor[i] * (s[i >> 1] - 'a' + 1)) % MOD;
+            else hash_lt[i] = hash_lt[i - 1];
+        }
+        
+        vector<long long> hash_rt(nn, 0);
+        hash_rt[nn - 1] = 0;
+        for (int i = nn - 2; i >= 0; i --) {
+            if (i & 1) hash_rt[i] = (hash_rt[i + 1] + factor[nn - 1 - i] * (s[i >> 1] - 'a' + 1)) % MOD;
+            else hash_rt[i] = hash_rt[i + 1];
+        }
+        
+        int res_center = -1;
+        int res_radium = -1;
+        
+        for (int i = 0; i < nn; i ++) {
+            int lt = 1, rt = min(i, nn - i);
+            while (lt <= rt) {
+                int len = lt + rt >> 1;
+                if (check(hash_lt, hash_rt, i, len, factor, nn)) {
+                    if (len > res_radium) {
+                        res_radium = len;
+                        res_center = i;
+                    }
+                    lt = len + 1;
+                } else {
+                    rt = len - 1;
+                }
+            }
+        }
+        
+        string res;
+        for (int i = res_center - res_radium + 1; i <= res_center + res_radium - 1; i ++) {
+            if (i & 1) res.push_back(s[i >> 1]);
+        }
+        return res;
+    }
+    
+    bool check(vector<long long>& hash_lt, vector<long long>& hash_rt, int i, int len, vector<long long>& factor, int nn) {
+        long long vlt = hash_lt[i], vrt = hash_rt[i];
+        if (i - len >= 0) vlt = ((vlt - hash_lt[i - len]) % MOD + MOD) % MOD;
+        if (i + len < nn) vrt = ((vrt - hash_rt[i + len]) % MOD + MOD) % MOD;
+        int dt = i - (nn - i - 1);
+        if (dt < 0) vlt = (vlt * factor[-dt]) % MOD;
+        else vrt = (vrt * factor[dt]) % MOD;
+        return vrt == vlt;
+    }
+};

@@ -1,4 +1,5 @@
 /*monotonicity*/
+/*classic, hard because of the way to handle corner cases*/
 
 #include <vector>
 #include <iostream>
@@ -88,3 +89,48 @@ int main() {
     cout << Solution().findMedianSortedArrays(nums1, nums2) << endl;
     return 0;
 }
+
+
+/**
+ * ATTENTION: corner case!!!!
+ * 1. double the length of each array, then (n1 + n2) will be even.
+ * 2. take care of the case when mid1 or mid2 is 0 or n1 or n2.
+*/
+
+class Solution {
+public:
+    double findMedianSortedArrays(vector<int>& nums1, vector<int>& nums2) {
+        return nums1.size() < nums2.size() ? find(nums1, nums2) : find(nums2, nums1); 
+    }
+    
+    double find(vector<int>& nums1, vector<int>& nums2) {
+        int n1 = nums1.size();
+        int n2 = nums2.size();
+        int half = n1 + n2; // duplicate elements
+        
+        int lt = 0, rt = n1 << 1;
+        while (lt <= rt) {
+            int mid1 = lt + rt >> 1;
+            int mid2 = half - mid1;
+            
+            if (mid1 >= 1 && nums1[mid1 - 1 >> 1] > nums2[mid2 >> 1]) {
+                rt = mid1 - 1;
+            } else if (mid1 < n1 * 2 && nums1[mid1 >> 1] < nums2[mid2 - 1 >> 1]) {
+                lt = mid1 + 1;
+            } else {
+                int maxl = 0;
+                if (mid1 == 0) maxl = nums2[mid2 - 1 >> 1];
+                else if (mid2 == 0) maxl = nums1[mid1 - 1 >> 1];
+                else maxl = max(nums1[mid1 - 1 >> 1], nums2[mid2 - 1 >> 1]);
+                
+                int minr = 0;
+                if (mid1 == n1 * 2) minr = nums2[mid2 >> 1];
+                else if (mid2 == n2 * 2) minr = nums1[mid1 >> 1];
+                else minr = min(nums1[mid1 >> 1], nums2[mid2 >> 1]);
+                
+                return 0.5 * (maxl + minr);
+            }
+        }
+        return 0;
+    }
+};

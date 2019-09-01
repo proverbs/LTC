@@ -97,3 +97,83 @@ int main() {
     cout << cache->get(4) << endl;       // returns 4
     return 0;
 }
+
+/**
+ * A better version
+ * 
+*/
+class LRUCache {
+private:
+    
+    class ListNode {
+    public:
+        ListNode *last, *next;
+        int val, key;
+        ListNode(int key, int val) : key(key), val(val), last(NULL), next(NULL) {}
+    };
+    
+    unordered_map<int, ListNode*> key2node;
+    int cap;
+    ListNode *head, *tail;
+    
+    void remove_from_list(ListNode *p) {
+        ListNode *plast = p->last;
+        ListNode *pnext = p->next;
+        plast->next = pnext;
+        pnext->last = plast;
+    }
+    
+    void add_to_list(ListNode *p) {
+        ListNode *q = head->next;
+        head->next = p;
+        p->next = q;
+        q->last = p;
+        p->last = head;
+    }
+    
+public:
+    LRUCache(int capacity) {
+        cap = capacity;
+        head = new ListNode(0, 0);
+        tail = new ListNode(0, 0);
+        head->next = tail;
+        tail->last = head;
+    }
+    
+    int get(int key) {
+        int res = -1;
+        if (key2node.count(key)) {
+            ListNode *p = key2node[key];
+            remove_from_list(p);
+            add_to_list(p);
+            res = p->val;
+        }
+        return res;
+    }
+    
+    void put(int key, int value) {
+        if (key2node.count(key)) {
+            ListNode *p = key2node[key];
+            remove_from_list(p);
+            add_to_list(p);
+            head->next->val = value;
+        } else {
+            if (key2node.size() == cap) {
+                ListNode *p = tail->last;
+                remove_from_list(p);
+                key2node.erase(p->key);
+                delete p;
+            }
+            ListNode *q = new ListNode(key, value);
+            add_to_list(q);
+            key2node[key] = q;
+        }
+    }
+};
+
+/**
+ * Your LRUCache object will be instantiated and called as such:
+ * LRUCache obj = new LRUCache(capacity);
+ * int param_1 = obj.get(key);
+ * obj.put(key,value);
+ */
