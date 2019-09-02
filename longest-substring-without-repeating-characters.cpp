@@ -32,3 +32,25 @@ int main() {
     cout << Solution().lengthOfLongestSubstring(s) << endl;
     return 0;
 }
+
+/**
+ * optimized by store the index in the hashmap
+*/
+
+class Solution {
+public:
+    int lengthOfLongestSubstring(string s) {
+        unordered_map<char, int> cnt;
+        int lt = 0, rt = lt;
+        int res = 0;
+        while (rt < s.length()) {
+            while (rt < s.length() && (!cnt.count(s[rt]) || cnt[s[rt]] < lt)) {
+                cnt[s[rt]] = rt;
+                rt ++;
+            }
+            res = max(res, rt - lt);
+            lt = cnt[s[lt]] + 1;
+        }
+        return res;
+    }
+};

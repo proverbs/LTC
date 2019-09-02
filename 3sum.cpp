@@ -60,3 +60,35 @@ int main() {
     cout << Solution().threeSum(t).size() << endl;
     return 0;
 }
+
+/**
+ * optimized using 2 pointers
+*/
+class Solution {
+public:
+    vector<vector<int>> threeSum(vector<int>& nums) {
+        sort(nums.begin(), nums.end());
+        vector<vector<int>> res;
+        int n = nums.size();
+        for (int i = 0; i < n; ) {
+            int lt = i + 1;
+            int rt = n - 1;
+            while (rt > lt && nums[lt] + nums[rt] > -nums[i]) rt --;
+            while (lt < rt) {
+                if (nums[i] + nums[lt] + nums[rt] == 0) {
+                    vector<int> t;
+                    t.push_back(nums[i]);
+                    t.push_back(nums[lt]);
+                    t.push_back(nums[rt]);
+                    res.push_back(t);
+                }
+                lt ++;
+                while (lt < rt && nums[lt] == nums[lt - 1]) lt ++;
+                while (rt > lt && nums[lt] + nums[rt] > -nums[i]) rt --;
+            }
+            i ++;
+            while (i < n && nums[i] == nums[i - 1]) i ++;
+        }
+        return res;
+    }
+};
